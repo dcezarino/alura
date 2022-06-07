@@ -16,7 +16,6 @@ public class KafkaDispatcher  implements Closeable {
 
     KafkaDispatcher(){
         this.producer = new KafkaProducer<>(properties());
-
     }
 
     /*

@@ -6,7 +6,7 @@ public class FraudeDetectorService {
 
     public static void main(String[] args) {
         var fraudeService = new FraudeDetectorService();
-        try (var service = new KafkaService(EmailService.class.getSimpleName(), "ECOMMERCE_NEW_ORDER",
+        try (var service = new KafkaService(FraudeDetectorService.class.getSimpleName(), "ECOMMERCE_NEW_ORDER",
                 fraudeService::parse)) {
             service.run();
         }
