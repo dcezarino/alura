@@ -9,3 +9,5 @@ public interface FuncionarioProjecao {
 	Double getSalario();
 
 }
+
+
