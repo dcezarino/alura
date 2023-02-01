@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
 
+import br.com.alura.gerenciador.modelo.Banco;
+import br.com.alura.gerenciador.modelo.Empresa;
+
 @WebServlet("/empresas")
 public class ListaEmpresaService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
