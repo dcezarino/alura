@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class MedicoController {
 
     /*
-    InjeÃ§Ã£o de DependÃªncias: indicar com a anotaÃ§Ã£o "@Autowired" para
-    que o Spring instancie esse atributo "medicoRepository", jÃ¡ que esse atributo
-    Ã© uma interface repository que deve ser reconhecida e recarregada,  entÃ£o cria
+    Injeção de Dependências: indicar com a anotação "@Autowired" para
+    que o Spring instancie esse atributo "medicoRepository", já que esse atributo
+    é uma interface repository que deve ser reconhecida e recarregada,  então cria
     o objeto e passa para o controller automaticamente.
      */
     @Autowired
