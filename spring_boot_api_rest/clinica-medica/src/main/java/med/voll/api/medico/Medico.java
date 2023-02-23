@@ -58,8 +58,5 @@ public class Medico {
             this.endereco.atualizarInformacoes(dados.endereco());
         }
 
-
-
-
     }
 }

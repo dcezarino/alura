@@ -1,7 +1,9 @@
 package med.voll.api.controller;
 
+import com.electronwill.nightconfig.core.conversion.Path;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import jakarta.websocket.server.PathParam;
 import med.voll.api.medico.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -51,6 +53,18 @@ public class MedicoController {
 
         var medico = medicoRepository.getReferenceById(dados.id());
         medico.atualizarInformacoes(dados);
+
+    }
+
+    /*
+    @PathVariable (variável da url/caminho), leva em consideração
+    o {id} que está vindo como parâmetro na requisição de exclusão.
+    */
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void deletar(@PathVariable Long id) {
+
+        medicoRepository.deleteById(id);
 
     }
 
