@@ -1,9 +1,7 @@
 package med.voll.api.controller;
 
-import com.electronwill.nightconfig.core.conversion.Path;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import jakarta.websocket.server.PathParam;
 import med.voll.api.medico.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -43,7 +41,7 @@ public class MedicoController {
 
         //return medicoRepository.findAll(paginacao).stream().map(DadosListagemMedico::new).toList();
 
-        return medicoRepository.findAll(paginacao).map(DadosListagemMedico::new);
+        return medicoRepository.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new);
 
     }
 
@@ -64,7 +62,8 @@ public class MedicoController {
     @Transactional
     public void deletar(@PathVariable Long id) {
 
-        medicoRepository.deleteById(id);
+        var medico = medicoRepository.getReferenceById(id);
+        medico.excluir();
 
     }
 

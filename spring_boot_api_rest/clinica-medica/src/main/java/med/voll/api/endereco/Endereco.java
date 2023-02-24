@@ -1,11 +1,7 @@
 package med.voll.api.endereco;
 
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -23,7 +19,7 @@ public class Endereco {
     private String cidade;
     private String uf;
 
-    public Endereco(DadosEndereco endereco) {
+    public Endereco(DadosAtualizacaoEndereco endereco) {
 
         this.logradouro = endereco.logradouro();
         this.bairro = endereco.bairro();
@@ -35,7 +31,7 @@ public class Endereco {
 
     }
 
-    public void atualizarInformacoes(DadosEndereco dados) {
+    public void atualizarInformacoes(DadosAtualizacaoEndereco dados) {
 
         if(dados.logradouro() != null) {
             this.logradouro = dados.logradouro();

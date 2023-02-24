@@ -1,19 +1,19 @@
-package med.voll.api.medico;
+package med.voll.api.paciente;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import med.voll.api.endereco.DadosAtualizacaoEndereco;
+import org.hibernate.validator.constraints.br.CPF;
 
 /*
-Java cria uma classe imut√°vel quando usamos record;
-Campos viram atributos, m√©todos getters, setters e construtores s√£o gerados;
-Spring d√° suporte para gerar essas tarefas com facilidade usando record;
+Java cria uma classe imut·vel quando usamos record;
+Campos viram atributos, mÈtodos getters, setters e construtores s„o gerados;
+Spring d· suporte para gerar essas tarefas com facilidade usando record;
 Esta classe representa um DTO;
  */
-public record DadosCadastroMedico(
+public record DadosCadastroPaciente (
 
         @NotBlank
         String nome,
@@ -23,15 +23,13 @@ public record DadosCadastroMedico(
         @NotBlank
         String telefone,
         @NotBlank
-        @Pattern(regexp = "\\d{4,6}")
-        String crm,
-        @NotNull
-        Especialidade especialidade,
+        @CPF
+        String cpf,
 
         /*
         @Valid, bean validation valida o DTO DadosCadastroMedico(),
-        al√©m de validar o atributo DadosEndereco com as suas respectivas
-        anota√ß√µes do bean validation.
+        alÈm de validar o atributo DadosEndereco com as suas respectivas
+        anotaÁıes do bean validation.
          */
         @NotNull
         @Valid
