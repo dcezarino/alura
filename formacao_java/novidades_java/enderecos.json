@@ -1,0 +1,37 @@
+[
+  {
+    "Cep": "78149-328",
+    "Logradouro": "Rua Angelim",
+    "Bairro": "Novo Mundo",
+    "Localidade": "Várzea Grande",
+    "Uf": "MT"
+  },
+  {
+    "Cep": "77023-136",
+    "Logradouro": "Quadra ASR SE 85 Alameda 4",
+    "Bairro": "Plano Diretor Sul",
+    "Localidade": "Palmas",
+    "Uf": "TO"
+  },
+  {
+    "Cep": "31230-690",
+    "Logradouro": "Rua Nova Cintra",
+    "Bairro": "Aparecida",
+    "Localidade": "Belo Horizonte",
+    "Uf": "MG"
+  },
+  {
+    "Cep": "59078-350",
+    "Logradouro": "Rua Professor Etelvino Cunha",
+    "Bairro": "Capim Macio",
+    "Localidade": "Natal",
+    "Uf": "RN"
+  },
+  {
+    "Cep": "65604-170",
+    "Logradouro": "Avenida Castelo Branco",
+    "Bairro": "Castelo Branco",
+    "Localidade": "Caxias",
+    "Uf": "MA"
+  }
+]
