@@ -1,4 +1,4 @@
-package br.com.alura.escola.dominio.infra.aluno;
+package br.com.alura.escola.infra.aluno;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

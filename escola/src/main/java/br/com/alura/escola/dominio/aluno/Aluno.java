@@ -9,6 +9,7 @@ public class Aluno {
 	private String nome;
 	private Email email;
 	private List<Telefone> telefones = new ArrayList<>();
+	private String senha;
 	
 	public Aluno(CPF cpf, String nome, Email email) {
 		
@@ -19,16 +20,9 @@ public class Aluno {
 	}
 	
 	public void adicionarTelefone (String ddd, String telefone) {		
-		
 		this.telefones.add(new Telefone(ddd, telefone));
-		
 	}
-
-	@Override
-	public String toString() {
-		return "Aluno [cpf=" + cpf.getNumero() + ", nome=" + nome + ", email=" + email.getEndereco() + ", telefones=" + telefones.get(0).getDdd() + telefones.get(0).getNumero() +"]";
-	}
-
+	
 	public String getCpf() {
 		return cpf.getNumero();
 	}
@@ -45,5 +39,9 @@ public class Aluno {
 		return telefones;
 	}
 	
+	@Override
+	public String toString() {
+		return "Aluno [cpf=" + cpf.getNumero() + ", nome=" + nome + ", email=" + email.getEndereco() + ", telefones=" + telefones.get(0).getDdd() + telefones.get(0).getNumero() +"]";
+	}
 
 }

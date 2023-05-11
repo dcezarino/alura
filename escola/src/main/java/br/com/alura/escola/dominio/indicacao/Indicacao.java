@@ -11,9 +11,11 @@ public class Indicacao {
 	private LocalDateTime dataIndicacao;
 
 	public Indicacao(Aluno indicado, Aluno indicante) {
+		
 		this.indicado = indicado;
 		this.indicante = indicante;
 		this.dataIndicacao = LocalDateTime.now();
+		
 	}
 	
 	public Aluno getIndicado() {
