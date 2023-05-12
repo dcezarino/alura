@@ -9,7 +9,7 @@ public class MatricularAlunoDto {
 	private String nomeAluno;
 	private String cpfAluno;
 	private String emailAluno;
-	
+		
 	public MatricularAlunoDto(String nomeAluno, String cpfAluno, String emailAluno) {		
 		
 		this.nomeAluno = nomeAluno;
@@ -22,6 +22,6 @@ public class MatricularAlunoDto {
 		
 		return new Aluno(new CPF(cpfAluno), nomeAluno, new Email(emailAluno));
 		
-	}
+	}	
 
 }

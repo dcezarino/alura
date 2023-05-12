@@ -3,6 +3,7 @@ package br.com.alura.escola.dominio.aluno;
 import java.util.ArrayList;
 import java.util.List;
 
+// Aggreate root
 public class Aluno {
 	
 	private CPF cpf;
@@ -15,16 +16,21 @@ public class Aluno {
 		
 		this.cpf = cpf;
 		this.nome = nome;
-		this.email = email;
+		this.email = email;		
 		
 	}
 	
-	public void adicionarTelefone (String ddd, String telefone) {		
-		this.telefones.add(new Telefone(ddd, telefone));
+	public void adicionarTelefone (String ddd, String telefone) throws TelefoneMaxException {
+		
+		if (telefones.size() == 2) {			
+			throw new TelefoneMaxException();
+		} 				
+			this.telefones.add(new Telefone(ddd, telefone));			
+		
 	}
 	
-	public String getCpf() {
-		return cpf.getNumero();
+	public CPF getCpf() {
+		return cpf;
 	}
 
 	public String getNome() {
@@ -39,6 +45,10 @@ public class Aluno {
 		return telefones;
 	}
 	
+	public String getSenha() {
+		return senha;
+	}
+
 	@Override
 	public String toString() {
 		return "Aluno [cpf=" + cpf.getNumero() + ", nome=" + nome + ", email=" + email.getEndereco() + ", telefones=" + telefones.get(0).getDdd() + telefones.get(0).getNumero() +"]";

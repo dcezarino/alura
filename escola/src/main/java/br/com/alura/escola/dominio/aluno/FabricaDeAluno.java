@@ -11,7 +11,7 @@ public class FabricaDeAluno {
 		
 	}
 	
-	public FabricaDeAluno comTelefone(String ddd, String numero ) {
+	public FabricaDeAluno comTelefone(String ddd, String numero ) throws TelefoneMaxException {
 		
 		this.aluno.adicionarTelefone(ddd, numero);
 		return this;
@@ -24,7 +24,7 @@ public class FabricaDeAluno {
 		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws TelefoneMaxException {
 		
 		FabricaDeAluno fabrica = new FabricaDeAluno();
 		Aluno aluno = fabrica.comNomeCPFEmail("Aluno Modelo", "00000000000", "alunomodelo@teste.com.br")

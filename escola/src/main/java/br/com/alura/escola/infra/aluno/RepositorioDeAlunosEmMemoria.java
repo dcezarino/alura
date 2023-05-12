@@ -23,7 +23,7 @@ public class RepositorioDeAlunosEmMemoria implements RepositorioDeAlunos {
 	public Aluno buscarPorCPF(CPF cpf) {
 		
 		return this.matriculados.stream()
-				   .filter(a -> a.getCpf().equals(cpf.getNumero()))
+				   .filter(a -> a.getCpf().toString().equals(cpf.getNumero()))
 				   .findFirst()
 				   .orElseThrow(() -> new AlunoNaoEncontrado(cpf));
 		

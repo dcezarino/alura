@@ -13,6 +13,7 @@ import br.com.alura.escola.dominio.aluno.CPF;
 import br.com.alura.escola.dominio.aluno.Email;
 import br.com.alura.escola.dominio.aluno.RepositorioDeAlunos;
 import br.com.alura.escola.dominio.aluno.Telefone;
+import br.com.alura.escola.dominio.aluno.TelefoneMaxException;
 
 public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
 	
@@ -28,7 +29,7 @@ public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
 		try {
 			String sql = "INSERT INTO ALUNOS VALUES(?, ?, ?)";
 			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setString(1, aluno.getCpf());
+			ps.setString(1, aluno.getCpf().toString());
 			ps.setString(2, aluno.getNome());
 			ps.setString(3, aluno.getEmail());
 			ps.execute();
@@ -81,7 +82,7 @@ public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
 			return encontrado;
 			
 						
-		} catch (SQLException e) {
+		} catch (SQLException | TelefoneMaxException e) {
 			throw new RuntimeException(e);
 
 		}	
@@ -121,7 +122,7 @@ public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
 			
 			return alunos;
 			
-		} catch (SQLException e) {
+		} catch (SQLException | TelefoneMaxException e) {
 			throw new RuntimeException(e);
 		}
 
