@@ -21,11 +21,12 @@ public class Paciente {
     private String cpf;
     private String nome;
     private String telefone;
-    private String email;
-    private boolean ativo;
+    private String email;    
 
     @Embedded
     private Endereco endereco;
+    
+    private boolean ativo;
 
     public Paciente(DadosCadastroPaciente dados) {
 
