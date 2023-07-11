@@ -1,5 +1,6 @@
 package med.voll.api.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.voll.api.domain.medico.*;
@@ -13,12 +14,13 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("medicos")
+@SecurityRequirement(name = "bearer-key")
 public class MedicoController {
 
     /*
-    Injeção de Dependências: indicar com a anotação "@Autowired" para
-    que o Spring instancie esse atributo "medicoRepository", já que esse atributo
-    é uma interface repository que deve ser reconhecida e recarregada,  então cria
+    Injeï¿½ï¿½o de Dependï¿½ncias: indicar com a anotaï¿½ï¿½o "@Autowired" para
+    que o Spring instancie esse atributo "medicoRepository", jï¿½ que esse atributo
+    ï¿½ uma interface repository que deve ser reconhecida e recarregada,  entï¿½o cria
     o objeto e passa para o controller automaticamente.
      */
     @Autowired
@@ -41,9 +43,9 @@ public class MedicoController {
     public ResponseEntity<Page<DadosListagemMedico>> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
 
         /*
-        Usando stream para efetuar a conversão do retorno findAll() que seria "Medico" para
-        "DadosListagemMedico", método implementado na classe DadosListagemMedico().
-        Conversão: Lista de "Medico" para Lista de "DadosListagemMedico"
+        Usando stream para efetuar a conversï¿½o do retorno findAll() que seria "Medico" para
+        "DadosListagemMedico", mï¿½todo implementado na classe DadosListagemMedico().
+        Conversï¿½o: Lista de "Medico" para Lista de "DadosListagemMedico"
          */
 
         //return medicoRepository.findAll(paginacao).stream().map(DadosListagemMedico::new).toList();
@@ -65,10 +67,10 @@ public class MedicoController {
     }
 
     /*
-    @PathVariable (variável da url/caminho), leva em consideração
-    o {id} que está vindo como parâmetro na requisição de exclusão.
+    @PathVariable (variï¿½vel da url/caminho), leva em consideraï¿½ï¿½o
+    o {id} que estï¿½ vindo como parï¿½metro na requisiï¿½ï¿½o de exclusï¿½o.
 
-    Por padrão quando processamos uma exclusão a resposta
+    Por padrï¿½o quando processamos uma exclusï¿½o a resposta
     deve ser 204 - No Content.
     */
     @DeleteMapping("/{id}")
