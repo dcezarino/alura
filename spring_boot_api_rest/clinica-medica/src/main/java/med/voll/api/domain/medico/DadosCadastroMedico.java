@@ -1,11 +1,10 @@
 package med.voll.api.domain.medico;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import med.voll.api.domain.endereco.DadosAtualizacaoEndereco;
+import med.voll.api.domain.endereco.DadosEndereco;
 
 /*
 Java cria uma classe imutável quando usamos record;
@@ -33,7 +32,5 @@ public record DadosCadastroMedico(
         além de validar o atributo DadosEndereco com as suas respectivas
         anotações do bean validation.
          */
-        @NotNull
-        @Valid
-        DadosAtualizacaoEndereco endereco) {
+        DadosEndereco endereco) {
 }

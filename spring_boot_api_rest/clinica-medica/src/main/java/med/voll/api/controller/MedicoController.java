@@ -18,9 +18,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class MedicoController {
 
     /*
-    Inje��o de Depend�ncias: indicar com a anota��o "@Autowired" para
-    que o Spring instancie esse atributo "medicoRepository", j� que esse atributo
-    � uma interface repository que deve ser reconhecida e recarregada,  ent�o cria
+    Injeção de Dependências: indicar com a anotação "@Autowired" para
+    que o Spring instancie esse atributo "medicoRepository", já que esse atributo
+    é uma interface repository que deve ser reconhecida e recarregada,  então cria
     o objeto e passa para o controller automaticamente.
      */
     @Autowired
@@ -43,9 +43,9 @@ public class MedicoController {
     public ResponseEntity<Page<DadosListagemMedico>> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
 
         /*
-        Usando stream para efetuar a convers�o do retorno findAll() que seria "Medico" para
-        "DadosListagemMedico", m�todo implementado na classe DadosListagemMedico().
-        Convers�o: Lista de "Medico" para Lista de "DadosListagemMedico"
+        Usando stream para efetuar a conversão do retorno findAll() que seria "Medico" para
+        "DadosListagemMedico", método implementado na classe DadosListagemMedico().
+        Conversão: Lista de "Medico" para Lista de "DadosListagemMedico"
          */
 
         //return medicoRepository.findAll(paginacao).stream().map(DadosListagemMedico::new).toList();
@@ -67,10 +67,10 @@ public class MedicoController {
     }
 
     /*
-    @PathVariable (vari�vel da url/caminho), leva em considera��o
-    o {id} que est� vindo como par�metro na requisi��o de exclus�o.
+    @PathVariable (variável da url/caminho), leva em consideração
+    o {id} que está vindo como parâmetro na requisição de exclusão.
 
-    Por padr�o quando processamos uma exclus�o a resposta
+    Por padrão quando processamos uma exclusão a resposta
     deve ser 204 - No Content.
     */
     @DeleteMapping("/{id}")

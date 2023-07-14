@@ -32,11 +32,11 @@ public class AgendaDeConsultas {
     public DadosDetalhamentoConsulta agendar(DadosAgendamentoConsulta dados){
 
         if(dados.idMedico() != null && !medicoRepository.existsById(dados.idMedico())){
-            throw new ValidacaoException("Id do médico informado não existe!");
+            throw new ValidacaoException("Id do mÃ©dico informado nÃ£o existe!");
         }
 
         if(!pacienteRepository.existsById(dados.idPaciente())){
-            throw new ValidacaoException("Id do paciente informado não existe!");
+            throw new ValidacaoException("Id do paciente informado nÃ£o existe!");
         }
 
         validadores.forEach( v-> v.validar(dados));
@@ -44,7 +44,7 @@ public class AgendaDeConsultas {
         var medico = escolherMedico(dados);
 
         if(medico == null){
-            throw new ValidacaoException("Não existe médico disponível nessa data");
+            throw new ValidacaoException("NÃ£o existe mÃ©dico disponÃ­vel nessa data");
         }
 
         var paciente = pacienteRepository.getReferenceById(dados.idPaciente());
@@ -64,7 +64,7 @@ public class AgendaDeConsultas {
         }
 
         if(dados.especialidade() == null) {
-            throw new ValidacaoException("Especialidae é obrigatória quando médico não for escolhido!");
+            throw new ValidacaoException("Especialidae Ã© obrigatÃ³ria quando mÃ©dico nÃ£o for escolhido!");
         }
 
         return medicoRepository.escolherMedicoAleatoriaLivreNaData(dados.especialidade(), dados.data());
@@ -74,7 +74,7 @@ public class AgendaDeConsultas {
     public void cancelar(DadosCancelamentoConsulta dados) {
 
         if(!consultaRepository.existsById(dados.idConsulta())){
-            throw new ValidacaoException("Id da consulta informado não existe!");
+            throw new ValidacaoException("Id da consulta informado nÃ£o existe!");
         }
 
         validadoresCancelamento.forEach(v -> v.validar(dados));
