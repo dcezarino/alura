@@ -14,8 +14,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 /*
-@Component: È utilizada para que o Spring carregue uma
-classe /componente genÈrico.
+@Component: √© utilizada para que o Spring carregue uma
+classe /componente gen√©rico.
  */
 @Component
 public class SecurityFilter extends OncePerRequestFilter {
@@ -27,9 +27,9 @@ public class SecurityFilter extends OncePerRequestFilter {
     private UsuarioRepository repository;
 
     /*
-    FilterChain: representa a cadeia de filtros na aplicaÁ„o.
-    O envio de um token È realizado em um cabeÁalho do Protocolo HTTP (Authorization).
-    Por padr„o, o tipo de prefixo Bearer È utilizado para tokens JWT.
+    FilterChain: representa a cadeia de filtros na aplica√ß√£o.
+    O envio de um token √© realizado em um cabe√ßalho do Protocolo HTTP (Authorization).
+    Por padr√£o, o tipo de prefixo Bearer √© utilizado para tokens JWT.
     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

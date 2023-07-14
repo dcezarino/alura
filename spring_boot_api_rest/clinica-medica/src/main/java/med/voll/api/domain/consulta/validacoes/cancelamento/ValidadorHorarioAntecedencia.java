@@ -23,7 +23,7 @@ public class ValidadorHorarioAntecedencia implements ValidadorCancelamentoDeCons
         var diferencaEmHoras = Duration.between(agora, consulta.getData()).toHours();
 
         if (diferencaEmHoras < 24) {
-            throw new ValidacaoException("Consulta somente pode ser cancelada com antecedência mínima de 24h!");
+            throw new ValidacaoException("Consulta somente pode ser cancelada com antecedï¿½ncia mï¿½nima de 24h!");
         }
 
     }

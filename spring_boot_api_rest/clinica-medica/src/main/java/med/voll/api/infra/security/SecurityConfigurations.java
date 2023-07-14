@@ -23,8 +23,8 @@ public class SecurityConfigurations {
 
     /*
       CSRF: Cross-Site Rquest Forgery, foi desabilitado.
-      O prÛprio token j· È uma proteÁ„o contra esse tipo de ataque (csrf), por isso foi desabilitado.
-      @Bean: expor o retorno do mÈtodo, devolver um objeto para o Spring.
+      O pr√≥prio token j√° √© uma prote√ß√£o contra esse tipo de ataque (csrf), por isso foi desabilitado.
+      @Bean: expor o retorno do m√©todo, devolver um objeto para o Spring.
     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

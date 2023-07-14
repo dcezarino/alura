@@ -14,14 +14,14 @@ public class ValidadorMedicoAtivo implements ValidadorAgendamentoDeConsultas{
 
     public void validar(DadosAgendamentoConsulta dados) {
 
-        // Escolha o médico (opcional)
+        // Escolha o mï¿½dico (opcional)
         if(dados.idMedico() == null){
             return;
         }
 
         var medicoEstaAtivo = medicoRepository.findAtivoById(dados.idMedico());
         if(!medicoEstaAtivo) {
-            throw new ValidacaoException("Consulta não pode ser agenda com médico inativo");
+            throw new ValidacaoException("Consulta nï¿½o pode ser agenda com mï¿½dico inativo");
 
         }
     }
