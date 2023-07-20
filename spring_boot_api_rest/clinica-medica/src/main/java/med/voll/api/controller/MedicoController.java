@@ -28,7 +28,7 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMedico dados, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<?> cadastrar(@RequestBody @Valid DadosCadastroMedico dados, UriComponentsBuilder uriBuilder) {
 
         var medico = new Medico(dados);
         medicoRepository.save(medico);
@@ -40,7 +40,7 @@ public class MedicoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DadosListagemMedico>> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
+    public ResponseEntity<Page<?>> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
 
         /*
         Usando stream para efetuar a conversão do retorno findAll() que seria "Medico" para
@@ -57,7 +57,7 @@ public class MedicoController {
 
     @PutMapping
     @Transactional
-    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados) {
+    public ResponseEntity<?> atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados) {
 
         var medico = medicoRepository.getReferenceById(dados.id());
         medico.atualizarInformacoes(dados);
@@ -75,7 +75,7 @@ public class MedicoController {
     */
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity deletar(@PathVariable Long id) {
+    public ResponseEntity<?> deletar(@PathVariable Long id) {
 
         var medico = medicoRepository.getReferenceById(id);
         medico.excluir();
