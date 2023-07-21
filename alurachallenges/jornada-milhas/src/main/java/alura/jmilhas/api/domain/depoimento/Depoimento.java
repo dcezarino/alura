@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,10 +19,13 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "id")
 public class Depoimento {
 	
-	public Depoimento(@Valid DadosCadastroDepoimento request) {
+	public Depoimento(DadosCadastroDepoimento request) {
+		
 		this.foto = request.foto();
 		this.descricao = request.descricao();
 		this.nomeResponsavel = request.nomeResponsavel();
+		this.ativo = true;
+		
 	}
 
 	@Id
@@ -36,5 +38,29 @@ public class Depoimento {
 	
 	@Column(name = "nome_responsavel")
 	private String nomeResponsavel;
+	
+    private boolean ativo;
+
+	public void atualizarInformacoes(DadosAtualizacaoDepoimento dados) {
+		
+		if (dados.foto() != null) {
+			this.foto = dados.foto();
+		} 
+
+		if (dados.descricao() != null) {
+			this.descricao = dados.descricao();
+		} 
+		
+		if (dados.nomeResponsavel() != null) {
+			this.nomeResponsavel = dados.nomeResponsavel();
+		} 
+		
+	}
+
+	public void excluir() {
+		
+		this.ativo = false;
+		
+	}
 
 }
