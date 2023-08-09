@@ -18,8 +18,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RequestMapping("destinations")
 public class DestinationController {
 
-	@Autowired
-	private DestinationRepository destinationRepository;
+    @Autowired
+    private DestinationRepository destinationRepository;
 
     @Autowired
     private ChatGptIntegrationService chatGptIntegrationService;
