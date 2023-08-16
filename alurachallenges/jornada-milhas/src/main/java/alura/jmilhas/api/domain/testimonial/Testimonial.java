@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class Testimonial {
 	
 	public Testimonial(TestimonialRegistrationData request) {
-		
+
 		this.image_url1 = request.image_url1();
 		this.description = request.description();
 		this.actor = request.actor();

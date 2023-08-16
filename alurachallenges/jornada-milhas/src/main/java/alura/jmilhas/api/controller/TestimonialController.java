@@ -18,7 +18,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import alura.jmilhas.api.domain.testimonial.TestimonialUpdateData;
 import alura.jmilhas.api.domain.testimonial.TestimonialRegistrationData;
 import alura.jmilhas.api.domain.testimonial.TestimonialDetailsData;
-import alura.jmilhas.api.domain.testimonial.MedicalDetailsData;
 import alura.jmilhas.api.domain.testimonial.TestimonialListData;
 import alura.jmilhas.api.domain.testimonial.Testimonial;
 import alura.jmilhas.api.repository.TestimonialRepository;
@@ -70,7 +69,7 @@ public class TestimonialController {
         var testimonial = testimonialRepository.getReferenceById(testimonialUpdateData.id());
         testimonial.updateInformation(testimonialUpdateData);
 
-        return ResponseEntity.ok(new MedicalDetailsData(testimonial));
+        return ResponseEntity.ok(new TestimonialDetailsData(testimonial));
 
     }
     

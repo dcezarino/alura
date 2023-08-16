@@ -26,7 +26,7 @@ public class Destination {
 		this.price = destinationDataRequest.price();
 		this.active = true;
 	}
-	
+
 	public void informationUpdate(@Valid DestinationUpdateData destinationUpdateData) {
 		
 		if(destinationUpdateData.image_url1() != null) {
