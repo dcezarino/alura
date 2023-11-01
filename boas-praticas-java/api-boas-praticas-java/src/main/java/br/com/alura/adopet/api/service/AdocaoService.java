@@ -1,7 +1,7 @@
 package br.com.alura.adopet.api.service;
 
 
-import br.com.alura.adopet.api.Validacoes.ValidacaoSolicitacaoAdocao;
+import br.com.alura.adopet.api.validacoes.ValidacaoSolicitacaoAdocao;
 import br.com.alura.adopet.api.dto.AprovacaoAdocaoDTO;
 import br.com.alura.adopet.api.dto.ReprovacaoAdocaoDTO;
 import br.com.alura.adopet.api.dto.SolicitacaoAdocaoDTO;
