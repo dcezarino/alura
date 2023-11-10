@@ -1,12 +1,16 @@
 package br.com.alura.adopet.api.model;
 
 import jakarta.persistence.*;
-import org.springframework.cglib.core.Local;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@EqualsAndHashCode(of = "id")
 @Table(name = "adocoes")
 public class Adocao {
 
@@ -16,9 +20,6 @@ public class Adocao {
         this.motivo = motivo;
         this.status = StatusAdocao.AGUARDANDO_AVALIACAO;
         this.data = LocalDateTime.now();
-    }
-
-    public Adocao() {
     }
 
     @Id
@@ -41,47 +42,6 @@ public class Adocao {
     private StatusAdocao status;
 
     private String justificativaStatus;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Adocao adocao = (Adocao) o;
-        return Objects.equals(id, adocao.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public LocalDateTime getData() {
-        return data;
-    }
-
-    public Tutor getTutor() {
-        return tutor;
-    }
-
-    public Pet getPet() {
-        return pet;
-    }
-
-    public String getMotivo() {
-        return motivo;
-    }
-
-    public StatusAdocao getStatus() {
-        return status;
-    }
-
-    public String getJustificativaStatus() {
-        return justificativaStatus;
-    }
 
     public void marcarComoAprovada() {
 

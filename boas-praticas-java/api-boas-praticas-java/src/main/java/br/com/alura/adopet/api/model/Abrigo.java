@@ -1,6 +1,5 @@
 package br.com.alura.adopet.api.model;
 
-import br.com.alura.adopet.api.dto.AbrigoDto;
 import br.com.alura.adopet.api.dto.CadastroAbrigoDto;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
