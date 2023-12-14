@@ -8,7 +8,7 @@ import br.com.alura.escola.academico.dominio.aluno.CifradorDeSenha;
 public class CifradorDeSenhaComMD5 implements CifradorDeSenha {
 
 	@Override
-	public String CifrarSenha(String senha) {
+	public String cifrarSenha(String senha) {
 		
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
@@ -29,7 +29,7 @@ public class CifradorDeSenhaComMD5 implements CifradorDeSenha {
 
 	@Override
 	public boolean validarSenhaCrifrada(String senhaCifrada, String senha) {
-		return senhaCifrada.equals(CifrarSenha(senha));
+		return senhaCifrada.equals(cifrarSenha(senha));
 	}
 
 }

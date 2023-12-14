@@ -12,7 +12,7 @@ public class MatricularAlunoViaLinhaDeComando {
 	
 	public static void main(String[] args) {
 		
-		String nome = "Aluno Moedelo";
+		String nome = "Aluno Modelo";
 		String cpf = "123.456.789-00";
 		String email = "alunomodelo@teste.com";
 		
