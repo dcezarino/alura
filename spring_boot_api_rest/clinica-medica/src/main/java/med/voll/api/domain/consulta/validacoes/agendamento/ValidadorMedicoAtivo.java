@@ -21,7 +21,7 @@ public class ValidadorMedicoAtivo implements ValidadorAgendamentoDeConsultas{
 
         var medicoEstaAtivo = medicoRepository.findAtivoById(dados.idMedico());
         if(!medicoEstaAtivo) {
-            throw new ValidacaoException("Consulta n�o pode ser agenda com m�dico inativo");
+            throw new ValidacaoException("Consulta não pode ser agenda com médico inativo");
 
         }
     }
