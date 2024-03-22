@@ -12,17 +12,16 @@ import java.util.Properties;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-public class KafkaService<T> implements Closeable {
-
+class KafkaService<T> implements Closeable {
     private final KafkaConsumer<String, T> consumer;
     private final ConsumerFunction parse;
 
-    KafkaService(String groupId, String topic, ConsumerFunction parse, Class<T> type, Map<String, String> properties) {
+    KafkaService(String groupId, String topic, ConsumerFunction parse, Class<T> type, Map<String,String> properties) {
         this(parse, groupId, type, properties);
         consumer.subscribe(Collections.singletonList(topic));
     }
 
-    KafkaService(String groupId, Pattern topic, ConsumerFunction parse, Class<T> type, Map<String, String> properties) {
+    KafkaService(String groupId, Pattern topic, ConsumerFunction parse, Class<T> type, Map<String,String> properties) {
         this(parse, groupId, type, properties);
         consumer.subscribe(topic);
     }
@@ -31,11 +30,12 @@ public class KafkaService<T> implements Closeable {
         this.parse = parse;
         this.consumer = new KafkaConsumer<>(getProperties(type, groupId, properties));
     }
+
     void run() {
         while (true) {
             var records = consumer.poll(Duration.ofMillis(100));
             if (!records.isEmpty()) {
-                System.out.println("Found " + records.count() + " records");
+                System.out.println("Encontrei " + records.count() + " registros");
                 for (var record : records) {
                     parse.consume(record);
                 }
@@ -43,10 +43,6 @@ public class KafkaService<T> implements Closeable {
         }
     }
 
-    /*
-     * Qual que é o descerializador?
-     * Antes serializou de string para bytes, agora de bytes para transformar em string.
-     */
     private Properties getProperties(Class<T> type, String groupId, Map<String, String> overrideProperties) {
         var properties = new Properties();
         properties.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
