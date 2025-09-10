@@ -1,0 +1,35 @@
+cache:
+  directories:
+    - $HOME/.m2
+
+language: java
+
+services:
+  - docker
+
+stages:
+  - test
+  - deploy
+
+install: skip
+
+jobs:
+  include:
+    - stage: test
+      name: "Testing Application"
+      services: postgresql
+      before_script:
+        - psql -c 'CREATE DATABASE clines_test;' -U postgres
+      script:
+        - make test
+
+    - stage: deploy
+      name: "Deploy Application to Production"
+      script:
+        - make deploy
+
+test:
+  @ ./mvnw test
+
+package:
+  @ ./mvnw clean package -DskipTests
